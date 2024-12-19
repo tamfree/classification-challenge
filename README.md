@@ -10,10 +10,13 @@ Classifying SPAM
 
 [Pandas](https://pandas.pydata.org/)
 
-[Scikit-learn](https://scikit-learn.org/stable/)
+[Scikit-learn](https://scikit-learn.org/)
 
-* [sklearn.preprocessing.StandardScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)
-* TBC
+* sklearn.preprocessing.StandardScaler
+* sklearn.model_selection.train_test_split
+* sklearn.metrics.accuracy_score
+* sklearn.linear_model.LogisticRegression
+* sklearn.ensemble.RandomForestClassifier
 
 ### Data source(s)
 
@@ -29,14 +32,16 @@ This code uses a copy stored at;  [https://static.bc-edx.com/ai/ail-v-1-0/m13/ch
 
 The below process was roughly followed in spam_detector.ipynb
 
-<div style="visibility:hidden">
-1. Ingest cryptocurrency pricing data using Pandas
-1. Cleansing the raw input data was not needed because all rows contained non-null floats.
+1. Ingest spam data using Pandas
+1. Review data.
+1. Split data into training and test datasets 
 1. Normalize the features by adjusting the scale of the numeric features using sklearn.preprocessing.StandardScaler
-1. Create clusers using sklearn.cluster.KMeans specifying the ideal k value.
-    1. First using the original set of features
-    1. Then again using a set of features modified using Princpal Compononent Analysis. In the real world, PCA would likely not be required for this amount of data.
-</div>
+1. Instantiate and train models
+1. Create test predicitions
+1. Calculate accuracy scores
+1. Determine which model is a better fit for the problem
+
+Predictions were limited to test data for this exercise.
 
 <details>
     <summary> Associated Lesson</summary>
@@ -45,6 +50,7 @@ The below process was roughly followed in spam_detector.ipynb
 
 Concepts covered:
 
+* Splitting data set into training and test data sets using sklearn.model_selection.train_test_split
 * Using *Standard Scaling* to normalize data.
-* Using *Principal Component Analysis (PCA)* to reduce the number of features requiring analysis to cluser the data
-</details>
+* Using *Accuracy Scores* to determing if a model is likely to yield an accurate prediction for the specified dataset
+* Using the *Random Forests Classifier* and  *LogisticRegression* models
